@@ -1,0 +1,22 @@
+package com.shash.threads.producerConsumer;
+
+public class ProdConsDemo {
+
+	public static void main(String[] args) {
+
+		final Processor processor = new Processor();
+		Thread producer = new Thread(new Runnable(){
+			public void run(){
+				processor.produce();
+			}
+		});
+		
+		Thread consumer = new Thread(new Runnable(){
+			
+			public void run(){
+				processor.consume();
+			}
+		});
+	}
+
+}

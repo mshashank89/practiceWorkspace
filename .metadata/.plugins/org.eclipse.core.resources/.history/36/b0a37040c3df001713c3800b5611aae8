@@ -1,0 +1,10 @@
+package com.shash.threads.way2initialize;
+
+public class AnonymousClassDeclDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

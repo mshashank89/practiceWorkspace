@@ -1,0 +1,32 @@
+package com.shash.threads.c_locks.classlock_objlock;
+
+public class ClassLockVsObjectLock {
+
+	private int count = 0;
+	
+	
+	public synchronized void stageOne(){
+		
+		for (int i=0;i<1E7;i++){
+			count ++;
+		}
+	}
+	
+	public void stageTwo(){
+		
+		synchronized(this){
+			for (int i=0;i<1E7;i++){
+				count++;
+			}
+		}
+
+	}
+	
+	public void main(){
+		
+	}
+	
+	public void finalResult(){
+		System.out.println("Final value of count : " + count);
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;hashMap&apos; in &apos;collections.map.MapTypeTest.print(...)&apos; to &apos;map&apos;&#x0D;&#x0A;- Original project: &apos;Try&apos;&#x0D;&#x0A;- Original element: &apos;collections.map.MapTypeTest.print(Map&lt;Integer, String&gt;).hashMap&apos;&#x0D;&#x0A;- Renamed element: &apos;hashMap&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;hashMap&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;collections.map{MapTypeTest.java[MapTypeTest~print~QMap\&lt;QInteger;QString;&gt;;@hashMap!747!774!768!774!QMap\&lt;QInteger;QString;&gt;;!0!true" name="map" references="true" stamp="1478105063257" version="1.0"/>
+</session>

@@ -1,0 +1,132 @@
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+
+//import for Scanner and other utility  classes
+import java.util.*;
+
+
+class TestClass {
+	
+	private static Print p = new Print();
+	
+    public static void main(String args[] ) throws Exception {
+        /*
+         * Read input from stdin and provide input before running
+         * Use either of these methods for input
+
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        int N = Integer.parseInt(line);*/
+
+        //Scanner
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+		
+
+        for (int i = 0; i < t; i++) {
+			String input = s.nextLine();
+			
+			
+			
+			
+        }
+		
+        
+        
+        p.close();
+    }
+	
+	public static class Node{
+		private int data;
+		private int index;
+		private List<Node> children;
+		
+		public Node(){
+			
+			children = new ArrayList<Node>();
+		}
+		
+		public Node(int data){
+			this.data = data;
+			children = new ArrayList<Node>();
+		}
+		
+		public void setData(int data){
+			this.data = data;
+		}
+		
+		public void addChild(int data){
+			Node child = new Node(data);
+			children.add(child);
+		}
+		
+		
+		
+		
+		public static int getDiameter(Node node){
+			
+			if (node == null){
+				return 0;
+			}
+			int leftHeight = getHeight(node.getLeft());
+			int rightHeight = getHeight(node.getRight());
+			
+			int ldiameter = getDiameter(node.left);
+			int rdiameter = getDiameter(node.right);
+			
+			return (Math.max((1+leftHeight+rightHeight), Math.max(ldiameter, rdiameter)));
+			
+		}
+	}
+    
+	private static int getHeight(Node node){
+		
+		if (node == null){
+			
+			return 0;
+		}
+		
+		return (1 + Math.max(getHeight(node.getLeft()), getHeight(node.getRight())));
+		
+	}
+    
+    static class Print {
+ 
+        private final BufferedWriter bw;
+ 
+        public Print() {
+            bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+ 
+        public void print(String str) throws IOException {
+            bw.append(str);
+        }
+        
+        public void print(int val) throws IOException {
+            bw.append(String.valueOf(val));
+        }
+        
+        public void println(int val) throws IOException {
+            print(val);
+            bw.append("\n");
+        }
+        public void println(String str) throws IOException {
+            print(str);
+            bw.append("\n");
+        }
+        
+        public void println() throws IOException {
+            bw.append("\n");
+        }
+ 
+        public void close() throws IOException {
+            bw.close();
+        }
+    }
+}

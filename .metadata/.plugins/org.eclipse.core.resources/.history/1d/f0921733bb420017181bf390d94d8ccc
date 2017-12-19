@@ -1,0 +1,48 @@
+package ds.arrays;
+
+public class ArrayOperations {
+	
+	static int[] a;
+	static{
+		a = new int[5];
+		for (int i=0;i<a.length;i++){
+			a[i] = i+1;
+		}
+	}
+	public static void main(String[] args) {
+		
+		printReverse();
+
+	}
+	
+	public static  void printReverse(){
+		System.out.println("Print reverse: ");
+		for (int i=a.length-1;i>=0;i--){
+			System.out.print(a[i] + " ");
+		}
+		
+		System.out.println();
+		
+		char[] c = new String().toCharArray();
+	}
+	
+	
+	public static void reverseCString(String s){
+		char[] c1 = s.toCharArray();
+		char[] c2 = new char[s.length()];
+		
+		int l = c1.length;
+		
+		for (int i=1;i<l-2;i++){
+			c2[i] = c1[l-1-i];
+		}
+		
+		c2[l-1] = c1[l-1];
+		
+		System.out.println(c2);
+		}
+	}
+	
+	
+
+}

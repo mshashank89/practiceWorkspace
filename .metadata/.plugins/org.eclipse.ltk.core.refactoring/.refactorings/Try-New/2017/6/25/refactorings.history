@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Test.countOnes(...)&apos; to &apos;countOnesOrZeros&apos;&#x0D;&#x0A;- Original project: &apos;Try-New&apos;&#x0D;&#x0A;- Original element: &apos;Test.countOnes(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Test.countOnesOrZeros(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;countOnes&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Test.java[Test~countOnes~\[I" name="countOnesOrZeros" references="true" stamp="1497800919483" version="1.0"/>
+</session>

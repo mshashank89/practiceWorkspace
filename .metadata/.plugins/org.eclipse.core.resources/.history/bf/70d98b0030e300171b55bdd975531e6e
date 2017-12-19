@@ -1,0 +1,35 @@
+package com.shash.threads.h_semaphores;
+
+import java.util.concurrent.Semaphore;
+
+public class Connection {
+	
+	private final static Connection instance = new Connection();
+	
+	private int connections = 0;
+	
+	private Semaphore semaphore = new Semaphore(10, true);
+	
+	private Connection(){
+		
+	}
+	
+	public static Connection getInstance(){
+		return instance;
+	}
+	
+	public void connect(){
+		
+	}
+	
+	private void doConnect(){
+		
+		connections++;
+		System.out.println("No. of connections : " + connections);
+		
+		Thread.sleep(2000);
+		
+		
+	}
+
+}

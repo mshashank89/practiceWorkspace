@@ -1,0 +1,9 @@
+package com.shash.threads.h_semaphores;
+
+public class SemaphoreDemoApp {
+
+	public static void main(String[] args) {
+
+	}
+
+}

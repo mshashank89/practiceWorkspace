@@ -1,0 +1,150 @@
+package hackerrank.bigdecimal;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+
+
+/*
+
+Sample Input
+----------------
+9
+-100
+50
+0
+56.6
+90
+0.12
+.12
+02.34
+000.000
+
+
+
+4
+31
+2
+4
+3
+
+
+Sample Output
+----------------
+90
+56.6
+50
+02.34
+0.12
+.12
+0
+000.000
+-100
+
+ */
+class Solution{
+	
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int t = sc.nextInt();
+		
+		for (int k=0;k<t;k++){
+			
+			int n= sc.nextInt();
+			int m = sc.nextInt();
+			
+			int[] a = new int[n];
+			for (int i=0;i<n;i++){
+				a[i]= sc.nextInt();
+			}
+			
+			boolean canWin = canWin(a,n,m);
+			
+			if (canWin) System.out.println("YES");
+			else System.out.println("NO");
+			
+		}
+	}
+	
+
+    private static boolean canWin(int[] a, int n, int m) {
+    	
+    	int pos = 0;
+    	//walk
+    	while(pos < n-1 && a[pos+1] != 1){
+    		if(a[pos] == 0) pos++;
+    	}
+    	
+    	for (int cur=0;a[cur+1]!=0;cur++){
+    		if (a[cur] == 0){
+    			pos++;
+    		}
+    	}
+    	
+    	//jump
+    	if (pos + m > n){
+			//if you can 
+			return true;
+		}
+    	
+		return false;
+	}
+
+
+	public static void main1(String []args){
+        //Input
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
+        }
+      	sc.close();
+      	
+      	for (int i=0;i<n;i++){
+      		
+      		boolean flag = false;
+      		for (int j=0;j<n-1;j++){
+//      			BigDecimal b1 = BigDecimal.valueOf(Double.valueOf(s[i]));
+//      			BigDecimal b2 = BigDecimal.valueOf(Double.valueOf(s[j]));
+      			
+      			
+      			
+      			Double d1 = Double.valueOf(s[j]);
+      			Double d2 = Double.valueOf(s[j+1]);
+      			
+      			if (d1 < d2){      			
+      				String temp = s[j];
+      		    	s[j] = s[j+1];
+      		    	s[j+1] = temp;
+      				
+//      				swap(s, j, j+1);
+      				flag = true;
+      			}
+      			
+      		}
+      		
+      		if (!flag){
+      			break;
+      		}
+      	}
+      	
+        //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
+        }
+    }
+    
+    public static void swap (String[] s, int i, int j){
+    	String temp = s[i];
+    	s[i] = s[j];
+    	s[j] = temp;
+    }
+    
+    
+
+}

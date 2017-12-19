@@ -1,0 +1,14 @@
+package collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CreateTree {
+
+	public List<LoyPromoBean> getList(){
+		List<LoyPromoBean> promoBeanList = new ArrayList<LoyPromoBean>();
+		
+		
+		return promoBeanList;
+	}
+}

@@ -1,0 +1,47 @@
+package com.shash.threads.locks;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class MultiLockDemo {
+
+	private static class Processor implements Runnable{
+		
+		Random random = new Random();
+		private List<Integer> list1 = new ArrayList<Integer>();
+		private List<Integer> list2 = new ArrayList<Integer>();
+		
+		private void stageOne(){
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			list1.add(random.nextInt(100));
+		}
+		
+		private void stageTwo(){
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			list2.add(random.nextInt(100));
+		}
+		
+		public void process(){
+			stageOne();
+			stageTwo();
+		}
+	}
+	
+	public static void main(String[] args) {
+
+	}
+
+}

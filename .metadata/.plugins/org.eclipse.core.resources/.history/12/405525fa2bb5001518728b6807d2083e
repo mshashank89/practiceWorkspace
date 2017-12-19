@@ -1,0 +1,198 @@
+package collections;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class CreateTree {
+
+	public static LoyPromoBeanTreeNode buildTreeFromList(
+			List<LoyPromoBean> promoBeanList) {
+
+		Map<String, LoyPromoBean> beanMap = new HashMap<String, LoyPromoBean>();
+		LoyPromoBeanTreeNode promoTreeRootNode = new LoyPromoBeanTreeNode();
+
+		for (LoyPromoBean promoBean : promoBeanList) {
+			beanMap.put(promoBean.getLoyPromoRLId(), promoBean);
+			if ("".equals(promoBean.getParRowId())) {
+				promoTreeRootNode = promoBean;
+			}
+		}
+
+		for (LoyPromoBean promoBean : promoBeanList) {
+
+		}
+
+		return null;
+	}
+	
+	
+
+	public static List<LoyPromoBean> getList() {
+		List<LoyPromoBean> promoBeanList = new ArrayList<LoyPromoBean>();
+
+		LoyPromoBean bean1 = new LoyPromoBean();
+		bean1.setLoyPromoRLId("1");
+		bean1.setCreatedBy("pn");
+		bean1.setLastUpdatedBy("pn");
+		bean1.setLastUpdateLogin("pn");
+		bean1.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean1.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean1.setConflictId("0");
+		bean1.setApplyToCd("Transactions");
+		bean1.setDescText("null");
+		bean1.setLibraryCatgCd("");
+		bean1.setLibBasePromoFlg("N");
+		bean1.setName("RS1");
+		bean1.setParRowId("");
+		bean1.setPromoId("100");
+		bean1.setSeqNum("1");
+		bean1.setTypeCd("Criteria");
+		bean1.setObjectVersionNumber("1");
+
+		LoyPromoBean bean2 = new LoyPromoBean();
+		bean2.setLoyPromoRLId("2");
+		bean2.setCreatedBy("pn");
+		bean2.setLastUpdatedBy("pn");
+		bean2.setLastUpdateLogin("pn");
+		bean2.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean2.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean2.setConflictId("0");
+		bean2.setApplyToCd("Transactions");
+		bean2.setDescText("null");
+		bean2.setLibraryCatgCd("null");
+		bean2.setLibBasePromoFlg("N");
+		bean2.setName("C1");
+		bean2.setParRowId("1");
+		bean2.setPromoId("100");
+		bean2.setSeqNum("1");
+		bean2.setTypeCd("Criteria");
+		bean2.setObjectVersionNumber("1");
+
+		LoyPromoBean bean3 = new LoyPromoBean();
+		bean3.setLoyPromoRLId("3");
+		bean3.setCreatedBy("pn");
+		bean3.setLastUpdatedBy("pn");
+		bean3.setLastUpdateLogin("pn");
+		bean3.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean3.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean3.setConflictId("0");
+		bean3.setApplyToCd("Transactions");
+		bean3.setDescText("null");
+		bean3.setLibraryCatgCd("null");
+		bean3.setLibBasePromoFlg("N");
+		bean3.setName("C2");
+		bean3.setParRowId("2");
+		bean3.setPromoId("100");
+		bean3.setSeqNum("1");
+		bean3.setTypeCd("Criteria");
+		bean3.setObjectVersionNumber("1");
+
+		LoyPromoBean bean4 = new LoyPromoBean();
+		bean4.setLoyPromoRLId("4");
+		bean4.setCreatedBy("pn");
+		bean4.setLastUpdatedBy("pn");
+		bean4.setLastUpdateLogin("pn");
+		bean4.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean4.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean4.setConflictId("0");
+		bean4.setApplyToCd("Transactions");
+		bean4.setDescText("null");
+		bean4.setLibraryCatgCd("null");
+		bean4.setLibBasePromoFlg("N");
+		bean4.setName("A1");
+		bean4.setParRowId("3");
+		bean4.setPromoId("100");
+		bean4.setSeqNum("1");
+		bean4.setTypeCd("Action");
+		bean4.setObjectVersionNumber("1");
+
+		LoyPromoBean bean5 = new LoyPromoBean();
+		bean5.setLoyPromoRLId("5");
+		bean5.setCreatedBy("pn");
+		bean5.setLastUpdatedBy("pn");
+		bean5.setLastUpdateLogin("pn");
+		bean5.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean5.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean5.setConflictId("0");
+		bean5.setApplyToCd("Transactions");
+		bean5.setDescText("null");
+		bean5.setLibraryCatgCd("null");
+		bean5.setLibBasePromoFlg("N");
+		bean5.setName("C3");
+		bean5.setParRowId("2");
+		bean5.setPromoId("100");
+		bean5.setSeqNum("1");
+		bean5.setTypeCd("Criteria");
+		bean5.setObjectVersionNumber("1");
+
+		LoyPromoBean bean6 = new LoyPromoBean();
+		bean6.setLoyPromoRLId("6");
+		bean6.setCreatedBy("pn");
+		bean6.setLastUpdatedBy("pn");
+		bean6.setLastUpdateLogin("pn");
+		bean6.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean6.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean6.setConflictId("0");
+		bean6.setApplyToCd("Transactions");
+		bean6.setDescText("null");
+		bean6.setLibraryCatgCd("null");
+		bean6.setLibBasePromoFlg("N");
+		bean6.setName("C4");
+		bean6.setParRowId("2");
+		bean6.setPromoId("100");
+		bean6.setSeqNum("1");
+		bean6.setTypeCd("Criteria");
+		bean6.setObjectVersionNumber("1");
+
+		LoyPromoBean bean7 = new LoyPromoBean();
+		bean7.setLoyPromoRLId("7");
+		bean7.setCreatedBy("pn");
+		bean7.setLastUpdatedBy("pn");
+		bean7.setLastUpdateLogin("pn");
+		bean7.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean7.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean7.setConflictId("0");
+		bean7.setApplyToCd("Transactions");
+		bean7.setDescText("null");
+		bean7.setLibraryCatgCd("null");
+		bean7.setLibBasePromoFlg("N");
+		bean7.setName("A2");
+		bean7.setParRowId("6");
+		bean7.setPromoId("100");
+		bean7.setSeqNum("1");
+		bean7.setTypeCd("Action");
+		bean7.setObjectVersionNumber("1");
+
+		LoyPromoBean bean8 = new LoyPromoBean();
+		bean8.setLoyPromoRLId("8");
+		bean8.setCreatedBy("pn");
+		bean8.setLastUpdatedBy("pn");
+		bean8.setLastUpdateLogin("pn");
+		bean8.setCreationDate("28-OCT-15 04.55.24.101000000 AM");
+		bean8.setLastUpdateDate("28-OCT-15 04.55.33.386000000 AM");
+		bean8.setConflictId("0");
+		bean8.setApplyToCd("Transactions");
+		bean8.setDescText("null");
+		bean8.setLibraryCatgCd("null");
+		bean8.setLibBasePromoFlg("N");
+		bean8.setName("C5");
+		bean8.setParRowId("6");
+		bean8.setPromoId("100");
+		bean8.setSeqNum("1");
+		bean8.setTypeCd("Criteria");
+		bean8.setObjectVersionNumber("1");
+
+		promoBeanList.add(bean1);
+		promoBeanList.add(bean2);
+		promoBeanList.add(bean3);
+		promoBeanList.add(bean4);
+		promoBeanList.add(bean5);
+		promoBeanList.add(bean6);
+		promoBeanList.add(bean7);
+		promoBeanList.add(bean8);
+
+		return promoBeanList;
+	}
+}

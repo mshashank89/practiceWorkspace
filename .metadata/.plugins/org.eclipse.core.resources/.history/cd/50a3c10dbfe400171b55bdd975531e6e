@@ -1,0 +1,5 @@
+package com.shash.threads.c_locks.classlock_objlock;
+
+public class ClassLockVsObjectLock {
+
+}

@@ -1,0 +1,5 @@
+package com.shash.threads.g_deadlocks;
+
+public class ResolveDeadLocksBankingSimulator {
+
+}

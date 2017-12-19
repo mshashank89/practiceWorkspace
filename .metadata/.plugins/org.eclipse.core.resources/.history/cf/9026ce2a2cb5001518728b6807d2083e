@@ -1,0 +1,59 @@
+package collections;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Test {
+
+	public static void main1(String[] args) {
+
+		Map<Integer, Integer> intMap = new TreeMap<Integer, Integer>();
+		
+		intMap.put(100, 1);
+		intMap.put(31, -4);
+		
+		for (int i : intMap.keySet()){
+			System.out.println(intMap.get(i));
+		}
+		
+		List<Integer> l = new ArrayList<Integer>();
+		l.add(-10);
+		l.add(-30);
+		l.add(9);
+		l.add(9);
+		
+		Collections.sort(l);
+		for (int i : l){
+			System.out.println(i);
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("starting");
+		File f = new File("D:/test/testFileq.txt");
+		try 
+		{
+			FileWriter fw = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+		
+			bw.append("hello");
+			bw.close();
+			fw.close();
+		}catch(IOException e){
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("end");
+	}
+
+}

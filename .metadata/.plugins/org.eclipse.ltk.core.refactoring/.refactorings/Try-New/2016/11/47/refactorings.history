@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Test2.replace(...)&apos; to &apos;repairMissingQuotes&apos;&#x0D;&#x0A;- Original project: &apos;Try&apos;&#x0D;&#x0A;- Original element: &apos;Test2.replace(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Test2.repairMissingQuotes(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;replace&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Test2.java[Test2~replace~QString;" name="repairMissingQuotes" references="true" stamp="1479307687007" version="1.0"/>
+</session>

@@ -1,0 +1,35 @@
+package com.shash.threads.c_locks.classlock_objlock;
+
+public class ClassLockVsObjectLock implements Runnable{
+
+	private int count = 0;
+	
+	public void run(){
+	}
+	
+	
+	private synchronized void stageOne(){
+		
+		for (int i=0;i<1E7;i++){
+			count ++;
+		}
+	}
+	
+	private void stageTwo(){
+		
+		synchronized(this){
+			for (int i=0;i<1E7;i++){
+				count++;
+			}
+		}
+
+	}
+	
+	public void main(){
+		
+	}
+	
+	public void finalResult(){
+		System.out.println("Final value of count : " + count);
+	}
+}

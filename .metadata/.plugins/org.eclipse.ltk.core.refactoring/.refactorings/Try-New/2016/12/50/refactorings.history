@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;strToConvert&apos; in &apos;TestClass.main(...)&apos; to &apos;orgStrToConvert&apos;&#x0D;&#x0A;- Original project: &apos;Try&apos;&#x0D;&#x0A;- Original element: &apos;TestClass.main(String[]).strToConvert&apos;&#x0D;&#x0A;- Renamed element: &apos;strToConvert&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;strToConvert&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{TestClass.java[TestClass~main~\[QString;@strToConvert!1168!1202!1175!1186!QString;!0!false" name="orgStrToConvert" references="true" stamp="1481009394109" version="1.0"/>
+</session>

@@ -1,0 +1,29 @@
+package com.shash.threads.h_semaphores;
+
+public class SemaphoreDemoApp {
+	
+	/*
+
+- Scenario:
+--------------
+- 200 threads created using a CachedThreadPool.
+- All threads are requesting for a connection from the Connection class.
+
+*****************************************************************************************************************
+* Not using semaphores will result in all 200 connections being formed at a time.
+  
+  This is not good in a real time scenario, where it will cause an overhead, resulting in performance issues.
+  So, it is better to limit the number of threads that can create connections. 
+  
+  This is achieved by the use of semaphores.
+   
+* Max number of connections at a time is limited to 10 by the use of semaphores.
+* 
+*****************************************************************************************************************
+	 */
+
+	public static void main(String[] args) {
+
+	}
+
+}

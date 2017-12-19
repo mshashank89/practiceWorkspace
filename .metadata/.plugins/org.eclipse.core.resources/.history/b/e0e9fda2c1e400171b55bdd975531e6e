@@ -1,0 +1,9 @@
+package com.shash.threads.c_locks.classlock_objlock.staticmethodlocktest;
+
+public class StaticMethodsLockTestDemo {
+
+	public static void main(String[] args) {
+
+	}
+
+}

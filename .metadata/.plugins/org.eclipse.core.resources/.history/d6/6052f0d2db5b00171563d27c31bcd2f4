@@ -1,0 +1,21 @@
+package regex;
+
+public class ChineseCharRegex {
+
+	public static void main(String[] args) {
+		String chineseRegex = "^[A-Za-z\\p{InCJK_UNIFIED_IDEOGRAPHS}]*$";
+		
+		
+		String s = "Hello124ERERWERdwsdf汉sdf";
+		String s1= "汉字汉字汉字汉字汉字汉fasdsdf##$#$";
+		String s2="!#!@#@!#!@#@!#wedfdfas汉汉汉";
+		
+		if (s2.matches(chineseRegex)){
+			System.out.println("matches");
+		}
+		else {
+			System.out.println("Doesn't match");
+		}
+	}
+
+}

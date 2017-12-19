@@ -1,0 +1,140 @@
+package hackerrank.bigdecimal;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+
+
+/*
+
+Sample Input
+----------------
+9
+-100
+50
+0
+56.6
+90
+0.12
+.12
+02.34
+000.000
+
+
+
+4
+31
+2
+4
+3
+
+
+Sample Output
+----------------
+90
+56.6
+50
+02.34
+0.12
+.12
+0
+000.000
+-100
+
+ */
+class Solution{
+	
+	 public static void main(String[] args) {
+	      Scanner in = new Scanner(System.in);
+	      BigInteger n = in.nextBigInteger();
+	      in.close();
+	      
+	      boolean flag = false;
+	      if (n.equals(2)){
+	    	  System.out.println("prime");
+	    	  return;
+	      }
+	      if (n.equals(1)){
+	    	  System.out.println("not prime");
+	    	  return;
+	      }
+	      
+	     
+	      
+	      boolean flag1 = true;
+	      while(flag1){
+	    	  BigInteger i = new BigInteger("1");
+	    	  i.add(new BigInteger("1"));
+	    	  
+	    	  if (i.equals(n.divide(new BigInteger("2")))){
+	    		  flag1 = false;
+	    	  }
+	    	  
+	    	  if (n.mod(i).equals(0)){
+	    		  flag = true;
+	    		  flag1 = false;
+	    	  }
+	      }
+	    	  
+	      
+	      if (!flag) System.out.println("prime");
+	      else System.out.println("not prime");
+	      
+	      
+	   }
+	
+
+    public static void main1(String []args){
+        //Input
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
+        }
+      	sc.close();
+      	
+      	for (int i=0;i<n;i++){
+      		
+      		boolean flag = false;
+      		for (int j=0;j<n-1;j++){
+//      			BigDecimal b1 = BigDecimal.valueOf(Double.valueOf(s[i]));
+//      			BigDecimal b2 = BigDecimal.valueOf(Double.valueOf(s[j]));
+      			
+      			
+      			
+      			Double d1 = Double.valueOf(s[j]);
+      			Double d2 = Double.valueOf(s[j+1]);
+      			
+      			if (d1 < d2){      			
+      				String temp = s[j];
+      		    	s[j] = s[j+1];
+      		    	s[j+1] = temp;
+      				
+//      				swap(s, j, j+1);
+      				flag = true;
+      			}
+      			
+      		}
+      		
+      		if (!flag){
+      			break;
+      		}
+      	}
+      	
+        //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
+        }
+    }
+    
+    public static void swap (String[] s, int i, int j){
+    	String temp = s[i];
+    	s[i] = s[j];
+    	s[j] = temp;
+    }
+    
+    
+
+}

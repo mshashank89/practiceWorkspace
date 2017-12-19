@@ -1,0 +1,100 @@
+package collections.list;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ListOperations {
+
+	private static final String EXPRESSION_REGEX = "^[0-9]*\\.?[0-9]+[+\\-*\\/][0-9]*\\.{0,1}[0-9]+$";
+	private static final String WHOLE_NUM_REGEX = "-?[0-9]*\\.0+";
+	private static final String OPERATOR_REGEX = "[+\\-*\\/]";
+
+	public static void main1(String[] args) {
+
+		List<Integer> intList = new LinkedList<Integer>();
+
+		for (int i = 0; i < 10; i++) {
+			intList.add(i);
+		}
+		/*
+		 * for (int i: intList){ System.out.print(i + ", "); }
+		 */
+
+		String exp = "000000009.1234+9.123456";
+
+		System.out.println(exp.lastIndexOf('+'));
+		System.out.println(exp.lastIndexOf('-'));
+
+		char operator = '+';
+		double operand1;
+		double operand2;
+
+		if (exp.matches(EXPRESSION_REGEX)) {
+			int operatorIndex = exp.indexOf(operator);
+			operand1 = Double.valueOf(exp.substring(0, operatorIndex));
+			operand2 = Double.valueOf(exp.substring(operatorIndex + 1));
+			System.out.println(operand1);
+			System.out.println(operand2);
+
+			System.out.println(operand1 + operand2);
+		}
+
+		String n1 = "29.90";
+		String n2 = "23.0";
+
+		if (n1.matches("[0-9]*\\.0+")) {
+			System.out.println(n1.substring(0, n1.length() - 2));
+		}
+		if (n2.matches("[0-9]*\\.0+")) {
+			System.out.println(n2.substring(0, n2.length() - 2));
+		}
+	}
+
+	public static void main2(String[] args) {
+		String expression = "93434+3434+";
+		String newOperator = "-";
+		if (isOperator(expression.charAt(expression.length() - 1))) {
+			System.out.println("true");
+			expression = expression.substring(0, expression.length() - 1);
+			expression = expression + newOperator;
+		}
+
+		System.out.println("new expr: " + expression);
+	}
+
+	private static boolean isOperator(char c) {
+		String s = String.valueOf(c);
+
+		return s.matches(OPERATOR_REGEX);
+	}
+
+	public static void main3(String[] args) {
+		double d1 = 0.3;
+		double d2 = 0.5;
+		double res = d1 + d2;
+
+		float f1 = 0.3f;
+		float f2 = 0.6f;
+		float res1 = f1 + f2;
+
+		BigDecimal b1 = new BigDecimal(0.3);
+		BigDecimal b2 = new BigDecimal(0.6);
+		BigDecimal b3 = b1.add(b2);
+		System.out.println(res);
+		System.out.println(b3);
+		System.out.println(res1);
+	}
+
+	public static void main(String[] arg) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter ur age ");
+
+		int value = scanner.nextInt();
+		assert value >= 18 : " Not valid";
+
+		System.out.println("value is " + value);
+	}
+}

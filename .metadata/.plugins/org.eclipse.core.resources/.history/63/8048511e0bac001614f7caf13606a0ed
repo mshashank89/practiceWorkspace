@@ -1,0 +1,99 @@
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+
+
+
+
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
+
+
+public class Test2 {
+
+	public static void main2(String[] args) throws TransformerException, SAXException, IOException, ParserConfigurationException {
+		
+		Transformer transformer = TransformerFactory.newInstance().newTransformer();
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+		//initialize StreamResult with File object to save to file
+		StreamResult result = new StreamResult(new StringWriter());
+		Node doc = getNode();
+		DOMSource source = new DOMSource(doc);
+		transformer.transform(source, result);
+		String xmlString = result.getWriter().toString();
+		System.out.println(xmlString);
+		
+	}
+	
+	
+	private static Element getNode(){
+		Element node = null;
+		try {
+			
+			node = DocumentBuilderFactory
+				    .newInstance()
+				    .newDocumentBuilder()
+				    .parse(new ByteArrayInputStream("<swe:frame   type=Tool bar  name =\"CTIToolbar\"     htmlAttr= \"class='siebui-tb-cti-container'\"/>".getBytes()))
+				    .getDocumentElement();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return node;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		replace("");
+	}
+	
+	private static void replace(String str){
+		//([a-z]\w+)|([A-Z]\w+)|(\s[a-z]\w+)|(\s[A-Z]\w+)
+		
+		//(=\s*[a-zA-Z]\w+\s*)
+		
+//		String regex ="(=\\s*[a-zA-Z]\\w+\\s*)"; 
+		String regex = "((?<=[a-zA-Z ]=))((?<=[\"]))*([ ]*[a-zA-Z]\\w+)";
+		String regex2 = "((?<=[a-zA-Z ]=))([ ]*[\"][a-zA-Z0-9]\\w+)((?<=[\"]))*";
+		
+		String replaceRegex = "\"$3\"";
+		String replaceRegex2 = "\"$2\"";
+		
+		String s = "type=too  count=\"100\"  count=\"100\" type=too  type1=\"too  count=\"100\"  type=\"too";
+		
+		String newStr = s.replaceAll(regex, replaceRegex);
+		
+		newStr = newStr.replaceAll(regex2, replaceRegex2);
+		newStr = newStr.replaceAll("\"\"", "\"");
+		
+		System.out.println(s + " -> " + newStr);
+		
+		
+		//matches text after "="
+		//((?<=[a-zA-Z]=).[a-zA-Z\s]*)
+		
+		//Expr to match valid attr-value pair
+		//((([a-zA-Z]+\s*=\s*"[a-zA-Z]+")))
+		
+	}
+
+}

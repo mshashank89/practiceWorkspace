@@ -1,0 +1,27 @@
+package com.shash.threads.f_reentrant_locks;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Processor {
+
+	private Lock lock = new ReentrantLock();
+	private int count = 0;
+	
+	
+	public void firstThread(){
+		for (int i=0;i<10000;i++){
+			count++;
+		}
+	}
+	
+	public void secondThread(){
+		for (int i=0;i<10000;i++){
+			count++;
+		}
+	}
+	
+	public void finalCount(){
+		System.out.println("Final count : " + count);
+	}
+}

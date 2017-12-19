@@ -1,0 +1,160 @@
+package ds.tree.binarysearchtree;
+
+import ds.tree.binarytree.BinaryTree;
+
+public class BinarySearchTree{
+
+	class Node{
+		int key;
+		Node left, right;
+		
+		public Node(int item){
+			key = item;
+			left = right = null;
+		}
+	}
+	
+	private Node root;
+	
+	public BinarySearchTree(){
+		root = null;
+	}
+	
+	private int getHeight(Node root){
+		if (root == null) return 0;
+		
+		int lHeight = getHeight(root.left) + 1;
+		int rHeight = getHeight(root.right) + 1;
+		
+		if (lHeight > rHeight) return lHeight;
+		else return rHeight;
+	}
+	public void printLevelOrder(){
+		printLevelOrder(root);
+		System.out.println();
+	}
+	
+	private void printGivenLevel(Node root, int level){
+		if (null == root) return;
+		
+		if (level == 1) System.out.print(root.key + "  ");
+		
+		if (level > 1){
+			printGivenLevel(root.left, level - 1);
+			printGivenLevel(root.right, level - 1); 
+		}
+	} 
+	
+	private void printLevelOrder(Node root) {
+		int height = getHeight(root);
+		
+		for (int i=1 ; i<=height ; i++){
+			printGivenLevel(root, i);
+			System.out.println();
+		}
+	}
+
+	public void printInOrder(){
+		inOrder(root);
+		System.out.println();
+	}
+	
+	private void inOrder(Node root) {
+		if (null == root) return;
+		
+		inOrder(root.left);
+		System.out.print(root.key + "  ");
+		inOrder(root.right);
+		
+	}
+
+	public void insert(int key){
+		root = insert(root, key);
+	}
+	
+	private Node insert(Node root, int key){
+		
+		if (root == null){
+			Node node = new Node(key);
+			return node;
+		}
+		else if (root.key < key){
+			root.right = insert(root.right, key);
+		}
+		else {
+			root.left = insert(root.left, key);
+		}
+		
+		return root;
+	}
+	
+	public void delete(int key){
+		delete(root, key);
+		System.out.println("Node with key " + key + " is deleted");
+		printLevelOrder();
+	}
+	
+	public void mirror(){
+		mirror(root);
+	}
+	
+	
+	private void mirror(Node root) {
+		if (root == null) return;
+		
+		Node temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+		
+		mirror(root.left);
+		mirror(root.right);
+	}
+
+	private Node delete(Node root, int key){
+		if (root == null) return null;
+		
+		else if (root.key < key) root.right = delete(root.right, key);
+		else if (root.key > key) root.left = delete(root.left, key);
+		else{
+			//the Node is found. There are 3 cases to be handled
+			//Case 1 : Leaf node
+			if (root.left == null && root.right == null){
+				root = null;
+			}
+			// Case 2 : Node has 1 child
+			if (root.left == null){
+				//copy the right child to the node and delete the current node.
+				Node temp = root;
+				root = root.right;
+				temp = null;
+			}else if (root.right == null){
+				Node temp = root;
+				root = root.left;
+				temp = null;
+			}
+			//Case 3 : Node has 2 children
+			else {
+				//find the next inOrder node for the root.
+				//replace the root by next inorder node
+				//delete the next inorder node
+				//Next Inorder Node is the min value in the right sub tree
+				
+				Node minValNode = findMin(root.right);
+				
+				root.key = minValNode.key;
+				root.right = delete(root.right, key);
+			}
+		}
+		
+		return root;
+	}
+
+	private Node findMin(Node root) {
+
+		if (root == null) return null;
+		
+		if (root.left == null) return root;
+		
+		return findMin(root.left);
+	}
+}

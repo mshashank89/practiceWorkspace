@@ -1,0 +1,33 @@
+package com.shash.threads.c_locks.classlock_objlock;
+
+public class ClassLockVsObjLockDemo {
+
+	public static void main(String[] args) {
+		
+		Thread t1 = new Thread(new Runnable() {
+			public void run(){
+				
+			}
+		});
+		
+		Thread t2 = new Thread(new Runnable() {
+			public void run(){
+				
+			}
+		});
+		
+		
+		t1.start();
+		t2.start();
+		
+		try{
+			t1.join();
+			t2.join();
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
+		
+		System.out.println("Finished.");
+	}
+
+}

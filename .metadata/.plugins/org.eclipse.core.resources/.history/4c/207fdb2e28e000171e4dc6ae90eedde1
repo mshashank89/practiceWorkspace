@@ -1,0 +1,10 @@
+package com.shash.threads.locks;
+
+public class MultiLockDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

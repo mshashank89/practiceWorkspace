@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ds.tree.BinaryTreeTest2&apos; to &apos;BinaryTree2&apos;&#x0D;&#x0A;- Original project: &apos;GeeksForGeeks&apos;&#x0D;&#x0A;- Original element: &apos;ds.tree.BinaryTreeTest2&apos;&#x0D;&#x0A;- Renamed element: &apos;ds.tree.BinaryTree2&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;BinaryTreeTest2&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ds.tree{BinaryTreeTest2.java[BinaryTreeTest2" matchStrategy="1" name="BinaryTree2" qualified="false" references="true" similarDeclarations="false" stamp="1506151449098" textual="false" version="1.0"/>
+</session>

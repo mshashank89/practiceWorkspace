@@ -1,0 +1,51 @@
+package com.shash.threads.threadpooling;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+public class ThreadPoolDemo {
+	
+	
+	private static class Worker implements Runnable{
+		public void run(){
+			
+			System.out.println(Thread.currentThread().getName() + " : Started");
+			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println(Thread.currentThread().getName() + " : End");
+		}
+	}
+
+	public static void main(String[] args) {
+		/*
+		 			Use Case
+		 			----------
+		 	1. Create 5 Worker instances
+		 	2. Create a thread pool with 2 threads
+		 	3. Execute the runnable instances using the threads in the threadpool
+		 	
+		 	
+		 */
+		
+		ExecutorService executor = Executors.newFixedThreadPool(2);    //Creates a threadpool with 2 threads
+		
+		for (int i=0;i<5;i++){    					//  Creates 5 Worker instances
+			executor.submit(new Worker());
+		}
+		
+		executor.shutdown();
+		try {
+			executor.awaitTermination(1, TimeUnit.DAYS);		//similar to thread.join(), waits for the termination of all threads in the threadpool
+		} catch (InterruptedException e) {
+		}
+		
+		System.out.println("End of main");
+	}
+
+}

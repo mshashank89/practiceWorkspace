@@ -1,0 +1,158 @@
+/* IMPORTANT: Multiple classes and nested static classes are supported */
+
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+
+//import for Scanner and other utility  classes
+import java.util.*;
+
+
+class TestClass {
+	
+	private static Print p = new Print();
+	
+    public static void main(String args[] ) throws Exception {
+        /*
+         * Read input from stdin and provide input before running
+         * Use either of these methods for input
+
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String line = br.readLine();
+        int N = Integer.parseInt(line);*/
+
+        //Scanner
+        Scanner s = new Scanner(System.in);
+        int t = Integer.valueOf(s.nextLine());
+        
+        
+        char[] stack = new char[100000];
+        
+        String[] stringArray = new String[t];
+
+        for (int i = 0; i < t; i++) {
+            stringArray[i] = s.nextLine();
+            
+        }
+        int count = 0;
+        for (String str : stringArray){
+        	
+        	Stack stk = new Stack(str.length());
+        	
+            stack = str.toCharArray();
+            boolean aFlag = true;
+            boolean bFlag = true;
+            for (int j=0;j<stack.length;j++){
+            	if (stack[j] == 'A'){
+            		if (aFlag){
+            			stk.push('A');
+            			aFlag = false;
+            			bFlag = true;
+            		}
+            		else{
+            			stk.popA();
+            			aFlag = true;
+            			bFlag = false;
+            		}
+            	}
+            	else if (stack[j] == 'B'){
+            		if (bFlag){
+            			stk.push('B');
+            			bFlag = false;
+            			aFlag = true;
+            		}
+            		else{
+            			stk.popB();
+            			bFlag = true;
+            			aFlag = false;
+            		}
+            	}	
+            }
+            if (stk.isBubbly() == -1){
+            	count++;
+            }
+        }
+        p.println(String.valueOf(count));
+        
+        p.close();
+    }
+    
+    
+    
+    static class Stack{
+    	private char[] aStk;
+    	private char[] bStk;
+    	private int aIndex = -1;
+    	private int bIndex = -1;
+    	private int size = 0;
+    	
+    	public Stack(int size){
+    		aStk = new char[size];
+    		bStk = new char[size];
+    		this.size = size;
+    	}
+    	
+    	private void pushA(){
+    		if (aIndex >=-1 && aIndex < size){
+    			aStk[++aIndex] = 'A';
+    		}
+    	}
+    	
+    	private void pushB(){
+    		if (bIndex >=-1 && bIndex < size){
+    			bStk[++bIndex] = 'B';
+    		}
+    	}
+    	
+    	
+    	private void popA(){
+    		if (aIndex >= 0){
+    			aStk[aIndex]='\0';
+    			aIndex--;
+    		}
+    		
+    	}
+    	private void popB(){
+    		if (bIndex >= 0){
+    			bStk[bIndex]='\0';
+    			bIndex--;
+    		}
+    		
+    	}
+    	
+    	private boolean isBubbly(){
+    		return (aIndex == -1 && bIndex == -1);
+    	}
+    	
+    }
+    
+    
+    static class Print {
+ 
+        private final BufferedWriter bw;
+ 
+        public Print() {
+            bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+ 
+        public void print(String str) throws IOException {
+            bw.append(str);
+        }
+ 
+        public void println(String str) throws IOException {
+            print(str);
+            bw.append("\n");
+        }
+        
+        public void println() throws IOException {
+            bw.append("\n");
+        }
+ 
+        public void close() throws IOException {
+            bw.close();
+        }
+    }
+}

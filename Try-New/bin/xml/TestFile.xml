@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<emGatewayConfigurations
+                config-class="oracle.communication.brm.charging.appconfiguration.beans.emgateway.EMGatewayConfigurations">
+	<emGatewayConfigurationList config-class="java.util.ArrayList">
+		<emGatewayConfig
+			config-class="oracle.communication.brm.charging.appconfiguration.beans.emgateway.EMGatewayConfiguration"
+            name="emGateway1"
+            port="15503"
+            threadPoolSize="10"
+            sslEnabled="0"
+            wallet=""
+            clientAuthenticationEnabled="0"/>
+	</emGatewayConfigurationList>
+</emGatewayConfigurations>

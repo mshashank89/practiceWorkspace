@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;service&apos; in &apos;com.shash.threads.h_semaphores.SemaphoreDemoApp.main(...)&apos; to &apos;executor&apos;&#x0D;&#x0A;- Original project: &apos;Multithreading&apos;&#x0D;&#x0A;- Original element: &apos;com.shash.threads.h_semaphores.SemaphoreDemoApp.main(String[]).service&apos;&#x0D;&#x0A;- Renamed element: &apos;service&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;service&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.shash.threads.h_semaphores{SemaphoreDemoApp.java[SemaphoreDemoApp~main~\[QString;@service!1021!1078!1037!1043!QExecutorService;!0!false" name="executor" references="true" stamp="1513521398932" version="1.0"/>
+</session>

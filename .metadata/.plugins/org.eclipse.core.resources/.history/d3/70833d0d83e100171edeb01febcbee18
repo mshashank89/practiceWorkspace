@@ -1,0 +1,44 @@
+package com.shash.threads.producerConsumer;
+
+public class Processor {
+	
+	private int num;
+	private final int LIMIT = 10;
+	private Object lock = new Object();
+	
+	public void produce(){
+		
+		while(true){
+			
+			synchronized(lock){
+				
+				if (num == LIMIT) num = 0;
+				
+				System.out.println(num++);
+				
+				lock.notify();
+			}
+		}
+		
+	}
+	
+	public void consume() throws InterruptedException{
+		
+		lock.wait();
+		
+		while(true){
+			
+			synchronized(lock){
+				
+				if (num == LIMIT) num = 0;
+				
+				System.out.println(num ++);
+				
+				lock.notify();
+				
+				Thread.sleep(1000);
+			}
+		}
+	}
+
+}

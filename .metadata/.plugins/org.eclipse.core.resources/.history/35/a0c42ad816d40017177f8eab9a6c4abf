@@ -1,0 +1,40 @@
+package ds.array;
+
+public class FindElementLeftMaxRightMin {
+
+	public static void main(String[] args) {
+
+		int a[] = {5,1,4,3,6,8,10,7,9};
+		System.out.println(a[findElement(a)]);
+	}
+	
+	private static int findElement(int a[]){
+		int index = -1;
+		
+		int leftMax = 0, rightMin = Integer.MAX_VALUE;
+		
+		//initialize leftMax and rightMin
+		leftMax = Integer.MIN_VALUE;
+		
+		for (int i=1;i<a.length;i++){
+			if (rightMin > a[i]){
+				rightMin = a[i];
+			}
+		}
+		
+		//find the element
+		for (int i=0;i<a.length;i++){
+			if (a[i] > leftMax && a[i] < rightMin){
+				return i;
+			}
+			else if (i+1 < a.length){
+				leftMax = leftMax > a[i+1] ? leftMax : a[i+1];
+				rightMin = rightMin > a[i+1] ? rightMin : a[i+1];
+			}
+		}
+		
+		
+		return index;
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;hackerrank.BigDecimal&apos; to &apos;hackerrank.bigdecimal&apos;&#x0D;&#x0A;- Original project: &apos;Try&apos;&#x0D;&#x0A;- Original element: &apos;Try/src/hackerrank.BigDecimal&apos;&#x0D;&#x0A;- Renamed element: &apos;Try/src/hackerrank.bigdecimal&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;hackerrank.BigDecimal&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;hackerrank.BigDecimal" name="hackerrank.bigdecimal" qualified="false" references="true" stamp="1474264563586" textual="false" version="1.0"/>
+</session>
