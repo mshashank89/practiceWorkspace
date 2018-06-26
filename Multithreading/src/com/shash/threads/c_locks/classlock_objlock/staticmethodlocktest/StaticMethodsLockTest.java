@@ -15,7 +15,7 @@ public class StaticMethodsLockTest {
 	 */
 
 	private static int count = 0;
-	private static Object lock = ClassLockVsObjectLock.class;
+	private static Object lock = StaticMethodsLockTest.class;
 	
 	public static synchronized void stageOne(){
 		
@@ -28,7 +28,7 @@ public class StaticMethodsLockTest {
 	
 	public static void stageTwo(){
 		
-		synchronized(ClassLockVsObjectLock.class){
+		synchronized(lock){
 			for (int i=0;i<1E7;i++){
 				count++;
 			}

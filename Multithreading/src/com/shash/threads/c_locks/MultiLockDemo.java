@@ -1,6 +1,8 @@
 package com.shash.threads.c_locks;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 

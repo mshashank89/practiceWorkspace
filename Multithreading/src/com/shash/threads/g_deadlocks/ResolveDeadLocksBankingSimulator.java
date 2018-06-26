@@ -33,7 +33,7 @@ The sum of the balances of Account1 and Account2 will be < 200000 if locks are n
 
 	private Random random = new Random();
 	
-	private void acquireLocks(Lock firstLock, Lock lock2) throws InterruptedException{
+	private void acquireLocks(Lock firstLock, Lock secondLock) throws InterruptedException{
 		
 		while(true){			
 			boolean gotFirstLock = false;
@@ -41,7 +41,7 @@ The sum of the balances of Account1 and Account2 will be < 200000 if locks are n
 			
 			try{
 				gotFirstLock = firstLock.tryLock();
-				gotSecondLock = lock2.tryLock();
+				gotSecondLock = secondLock.tryLock();
 			}
 			finally {
 				if (gotFirstLock && gotSecondLock){
@@ -50,7 +50,7 @@ The sum of the balances of Account1 and Account2 will be < 200000 if locks are n
 				else if (gotFirstLock){
 					firstLock.unlock();
 				}else if (gotSecondLock){
-					lock2.unlock();
+					secondLock.unlock();
 				}
 			}
 
